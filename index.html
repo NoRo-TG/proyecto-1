@@ -1,54 +1,293 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computación e Informática</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía de Computación e Informática</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
 </head>
 <body>
-    <header>
-        <h1>Computación e Informática</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#que-es">¿Qué es?</a></li>
-                <li><a href="#aplicaciones">Aplicaciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="nav__brand">Compu&Info</div>
+    <nav class="nav__links">
+      <button class="link" data-scroll="#inicio">Inicio</button>
+      <button class="link" data-scroll="#cursos">Cursos</button>
+      <button class="link" data-scroll="#laboratorio">Laboratorio</button>
+      <button class="link" data-scroll="#contacto">Contacto</button>
+    </nav>
+    <div class="nav__actions">
+      <button id="themeToggle" class="btn btn--ghost" aria-pressed="false" title="Cambiar tema">🌗 Tema</button>
+    </div>
+  </header>
 
-    <main>
-        <section id="inicio">
-            <h2>Bienvenido</h2>
-            <p>Explora el mundo de la computación y la informática, desde la historia de los ordenadores hasta las últimas innovaciones tecnológicas.</p>
-        </section>
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="hero__content">
+      <h1>Aprende Computación e Informática desde cero</h1>
+      <p>Redes, hardware, programación, seguridad y más. Contenido corto, práctico y al grano.</p>
+      <div class="hero__actions">
+        <button class="btn btn--primary" data-scroll="#cursos">Explorar cursos</button>
+        <button class="btn btn--outline" id="openModal">Ver demo</button>
+      </div>
+    </div>
+    <div class="hero__image" aria-hidden="true"></div>
+  </section>
 
-        <section id="que-es">
-            <h2>¿Qué es la Computación?</h2>
-            <p>La computación es el estudio de los sistemas computacionales y su uso para procesar información. La informática incluye áreas como algoritmos, programación, redes y más.</p>
-        </section>
+  <!-- Filtros -->
+  <section class="filters">
+    <span>Filtrar por: </span>
+    <div class="filters__group" role="group" aria-label="Filtros de cursos">
+      <button class="chip chip--active" data-filter="all">Todos</button>
+      <button class="chip" data-filter="programacion">Programación</button>
+      <button class="chip" data-filter="redes">Redes</button>
+      <button class="chip" data-filter="hardware">Hardware</button>
+      <button class="chip" data-filter="seguridad">Seguridad</button>
+    </div>
+  </section>
 
-        <section id="aplicaciones">
-            <h2>Aplicaciones</h2>
-            <ul>
-                <li>Desarrollo de software</li>
-                <li>Inteligencia artificial</li>
-                <li>Seguridad informática</li>
-                <li>Big Data y análisis</li>
-                <li>Redes y telecomunicaciones</li>
-            </ul>
-        </section>
+  <!-- Cursos -->
+  <section id="cursos" class="section">
+    <h2>Cursos destacados</h2>
+    <div class="grid">
+      <!-- Tarjeta -->
+      <article class="card" data-category="programacion">
+        <div class="card__badge">Nuevo</div>
+        <h3>Programación en Python</h3>
+        <p>Variables, funciones, archivos y proyectos reales.</p>
+        <div class="card__actions">
+          <button class="btn btn--primary" data-temario="#t-py">Ver temario</button>
+          <button class="btn btn--ghost" data-copiar="python -m venv .venv">Copiar comando</button>
+        </div>
+        <ul id="t-py" class="temario" hidden>
+          <li>Fundamentos y tipos</li>
+          <li>Estructuras de control</li>
+          <li>Manejo de archivos</li>
+          <li>APIs y proyectos</li>
+        </ul>
+      </article>
 
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Para más información, puedes escribirnos a <a href="mailto:info@informatica.com">info@informatica.com</a>.</p>
-        </section>
-    </main>
+      <article class="card" data-category="redes">
+        <h3>Introducción a Redes</h3>
+        <p>Modelo OSI, TCP/IP, direccionamiento y subredes.</p>
+        <div class="card__actions">
+          <button class="btn btn--primary" data-temario="#t-net">Ver temario</button>
+          <button class="btn btn--ghost" data-copiar="ipconfig /all">Copiar comando</button>
+        </div>
+        <ul id="t-net" class="temario" hidden>
+          <li>Capa física y enlaces</li>
+          <li>Enrutamiento básico</li>
+          <li>IPv4/IPv6</li>
+          <li>Subnetting</li>
+        </ul>
+      </article>
 
-    <footer>
-        <p>&copy; 2025 Computación e Informática. Todos los derechos reservados.</p>
-    </footer>
+      <article class="card" data-category="hardware">
+        <h3>Armado de PC</h3>
+        <p>Compatibilidad, presupuesto y montaje paso a paso.</p>
+        <div class="card__actions">
+          <button class="btn btn--primary" data-temario="#t-hw">Ver checklist</button>
+          <button class="btn btn--ghost" data-copiar="memtest86">Copiar comando</button>
+        </div>
+        <ul id="t-hw" class="temario" hidden>
+          <li>CPU, placa y RAM</li>
+          <li>Almacenamiento</li>
+          <li>Flujo de aire</li>
+          <li>Pruebas y BIOS</li>
+        </ul>
+      </article>
+
+      <article class="card" data-category="seguridad">
+        <div class="card__badge">Popular</div>
+        <h3>Ciberseguridad Básica</h3>
+        <p>Contraseñas, 2FA, phishing y buenas prácticas.</p>
+        <div class="card__actions">
+          <button class="btn btn--primary" data-temario="#t-sec">Ver temario</button>
+          <button class="btn btn--ghost" data-copiar="openssl rand -base64 32">Copiar comando</button>
+        </div>
+        <ul id="t-sec" class="temario" hidden>
+          <li>Modelos de amenaza</li>
+          <li>Seguridad de cuentas</li>
+          <li>Backups y cifrado</li>
+          <li>Navegación segura</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Laboratorio: terminal de ejemplo -->
+  <section id="laboratorio" class="section">
+    <h2>Laboratorio interactivo</h2>
+    <p>Prueba un “terminal” de juguete: ejecuta comandos de demo.</p>
+    <div class="terminal" role="region" aria-label="Terminal de ejemplo">
+      <div class="terminal__bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <strong class="terminal__title">dev@compu:~$</strong>
+      </div>
+      <div id="termOutput" class="terminal__output" aria-live="polite"></div>
+      <div class="terminal__input">
+        <input id="termInput" type="text" placeholder="Escribe: help, date, ip, cls" aria-label="Entrada de terminal" />
+        <button id="termRun" class="btn btn--primary">Ejecutar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <h2>Contáctanos</h2>
+    <form id="contactForm" class="form" novalidate>
+      <label>Nombre
+        <input type="text" name="nombre" required />
+      </label>
+      <label>Correo
+        <input type="email" name="correo" required />
+      </label>
+      <label>Mensaje
+        <textarea name="mensaje" rows="4" required></textarea>
+      </label>
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary">Enviar</button>
+        <button type="reset" class="btn btn--outline">Limpiar</button>
+      </div>
+      <p id="formMsg" class="form__msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Modal -->
+  <dialog id="demoModal" class="modal">
+    <div class="modal__content">
+      <h3>Vista rápida</h3>
+      <p>Esta es una demo de modal accesible con HTML nativo.</p>
+      <button class="btn btn--primary" id="closeModal">Cerrar</button>
+    </div>
+  </dialog>
+
+  <!-- Botón volver arriba -->
+  <button id="toTop" class="to-top" title="Volver arriba" aria-label="Volver arriba">↑</button>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Compu&Info • Hecho con HTML, CSS y JS</small>
+  </footer>
+
+  <script>
+    // Utilidades
+    const $ = (sel, ctx=document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx=document) => [...ctx.querySelectorAll(sel)];
+
+    // Scroll suave
+    $$(".link, [data-scroll]").forEach(btn=>{
+      btn.addEventListener("click", e=>{
+        const target = btn.dataset.scroll;
+        if (target) $(target).scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+
+    // Tema (dark/light) con persistencia
+    const themeToggle = $("#themeToggle");
+    const applyTheme = t => document.documentElement.dataset.theme = t;
+    const saved = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    applyTheme(saved);
+    themeToggle.setAttribute("aria-pressed", saved === "dark");
+    themeToggle.addEventListener("click", ()=>{
+      const next = (document.documentElement.dataset.theme === "dark") ? "light" : "dark";
+      applyTheme(next);
+      localStorage.setItem("theme", next);
+      themeToggle.setAttribute("aria-pressed", next === "dark");
+    });
+
+    // Modal
+    const modal = $("#demoModal");
+    $("#openModal").addEventListener("click", ()=> modal.showModal());
+    $("#closeModal").addEventListener("click", ()=> modal.close());
+    modal.addEventListener("click", e => { if (e.target === modal) modal.close(); });
+
+    // Filtros de cursos
+    const chips = $$(".chip");
+    const cards = $$(".card");
+    chips.forEach(ch=>{
+      ch.addEventListener("click", ()=>{
+        chips.forEach(c=>c.classList.remove("chip--active"));
+        ch.classList.add("chip--active");
+        const f = ch.dataset.filter;
+        cards.forEach(card=>{
+          const ok = f === "all" || card.dataset.category === f;
+          card.style.display = ok ? "" : "none";
+        });
+      });
+    });
+
+    // Ver temario (toggle)
+    $$("[data-temario]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const ul = $(btn.dataset.temario);
+        const visible = !ul.hasAttribute("hidden");
+        ul.toggleAttribute("hidden", visible);
+        btn.textContent = visible ? "Ver temario" : "Ocultar";
+      });
+    });
+
+    // Copiar comando
+    $$("[data-copiar]").forEach(btn=>{
+      btn.addEventListener("click", async ()=>{
+        const text = btn.dataset.copiar;
+        try { await navigator.clipboard.writeText(text);
+          btn.classList.add("ok"); btn.textContent = "Copiado ✓";
+          setTimeout(()=>{ btn.classList.remove("ok"); btn.textContent = "Copiar comando"; }, 1200);
+        } catch { alert("No se pudo copiar"); }
+      });
+    });
+
+    // Terminal de juguete
+    const termOut = $("#termOutput");
+    const termIn  = $("#termInput");
+    const termRun = $("#termRun");
+    const print = (msg)=> termOut.insertAdjacentHTML("beforeend", `<div class="line">${msg}</div>`);
+    const commands = {
+      help: ()=> "Comandos: help, date, ip, cls",
+      date: ()=> new Date().toString(),
+      ip:   ()=> "IP simulada: 192.168.1.42",
+      cls:  ()=> { termOut.innerHTML = ""; return "Pantalla limpia."; }
+    };
+    const runCmd = ()=>{
+      const v = termIn.value.trim().toLowerCase();
+      if (!v) return;
+      print(`<span class="prompt">dev@compu</span>$ ${v}`);
+      print(commands[v]?.() ?? "Comando no reconocido. Escribe 'help'.");
+      termIn.value = ""; termOut.scrollTop = termOut.scrollHeight;
+    };
+    termRun.addEventListener("click", runCmd);
+    termIn.addEventListener("keydown", e=>{ if(e.key==="Enter") runCmd(); });
+
+    // Formulario
+    const form = $("#contactForm");
+    form.addEventListener("submit", e=>{
+      e.preventDefault();
+      const fd = new FormData(form);
+      const ok = [...fd.entries()].every(([k,v])=>String(v).trim().length>0);
+      const email = fd.get("correo");
+      const msgEl = $("#formMsg");
+      if (!ok || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msgEl.textContent = "Revisa los campos. El correo debe ser válido.";
+        msgEl.className = "form__msg form__msg--error";
+        return;
+      }
+      msgEl.textContent = "¡Mensaje enviado! Te responderemos pronto.";
+      msgEl.className = "form__msg form__msg--ok";
+      form.reset();
+    });
+
+    // Volver arriba
+    const toTop = $("#toTop");
+    const onScroll = ()=>{
+      toTop.classList.toggle("show", window.scrollY > 500);
+    };
+    toTop.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
+    document.addEventListener("scroll", onScroll);
+    onScroll();
+
+    // Año dinámico
+    $("#year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
