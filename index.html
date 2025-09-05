@@ -6,6 +6,7 @@
   <title>Guía de Computación e Informática</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -18,25 +19,33 @@
       <button class="link" data-scroll="#contacto">Contacto</button>
     </nav>
     <div class="nav__actions">
-      <button id="themeToggle" class="btn btn--ghost" aria-pressed="false" title="Cambiar tema">🌗 Tema</button>
+      <button id="themeToggle" class="btn btn--ghost" aria-pressed="false" title="Cambiar tema">
+        <span class="theme-icon">🌗</span> Tema
+      </button>
     </div>
   </header>
 
   <!-- Hero -->
   <section id="inicio" class="hero">
     <div class="hero__content">
-      <h1>Aprende Computación e Informática desde cero</h1>
-      <p>Redes, hardware, programación, seguridad y más. Contenido corto, práctico y al grano.</p>
-      <div class="hero__actions">
-        <button class="btn btn--primary" data-scroll="#cursos">Explorar cursos</button>
+      <h1 data-aos="fade-up">Aprende Computación e Informática desde cero</h1>
+      <p data-aos="fade-up" data-aos-delay="100">Redes, hardware, programación, seguridad y más. Contenido corto, práctico y al grano.</p>
+      <div class="hero__actions" data-aos="fade-up" data-aos-delay="200">
+        <button class="btn btn--primary pulse" data-scroll="#cursos">Explorar cursos</button>
         <button class="btn btn--outline" id="openModal">Ver demo</button>
       </div>
     </div>
-    <div class="hero__image" aria-hidden="true"></div>
+    <div class="hero__image" aria-hidden="true" data-aos="fade-left" data-aos-delay="300">
+      <div class="floating-elements">
+        <div class="float-element element-1"><i class="fas fa-code"></i></div>
+        <div class="float-element element-2"><i class="fas fa-network-wired"></i></div>
+        <div class="float-element element-3"><i class="fas fa-microchip"></i></div>
+      </div>
+    </div>
   </section>
 
   <!-- Filtros -->
-  <section class="filters">
+  <section class="filters" data-aos="fade-in">
     <span>Filtrar por: </span>
     <div class="filters__group" role="group" aria-label="Filtros de cursos">
       <button class="chip chip--active" data-filter="all">Todos</button>
@@ -49,10 +58,10 @@
 
   <!-- Cursos -->
   <section id="cursos" class="section">
-    <h2>Cursos destacados</h2>
+    <h2 data-aos="fade-right">Cursos destacados</h2>
     <div class="grid">
       <!-- Tarjeta -->
-      <article class="card" data-category="programacion">
+      <article class="card" data-category="programacion" data-aos="flip-left">
         <div class="card__badge">Nuevo</div>
         <h3>Programación en Python</h3>
         <p>Variables, funciones, archivos y proyectos reales.</p>
@@ -68,7 +77,7 @@
         </ul>
       </article>
 
-      <article class="card" data-category="redes">
+      <article class="card" data-category="redes" data-aos="flip-left" data-aos-delay="100">
         <h3>Introducción a Redes</h3>
         <p>Modelo OSI, TCP/IP, direccionamiento y subredes.</p>
         <div class="card__actions">
@@ -83,7 +92,7 @@
         </ul>
       </article>
 
-      <article class="card" data-category="hardware">
+      <article class="card" data-category="hardware" data-aos="flip-left" data-aos-delay="200">
         <h3>Armado de PC</h3>
         <p>Compatibilidad, presupuesto y montaje paso a paso.</p>
         <div class="card__actions">
@@ -98,7 +107,7 @@
         </ul>
       </article>
 
-      <article class="card" data-category="seguridad">
+      <article class="card" data-category="seguridad" data-aos="flip-left" data-aos-delay="300">
         <div class="card__badge">Popular</div>
         <h3>Ciberseguridad Básica</h3>
         <p>Contraseñas, 2FA, phishing y buenas prácticas.</p>
@@ -118,25 +127,49 @@
 
   <!-- Laboratorio: terminal de ejemplo -->
   <section id="laboratorio" class="section">
-    <h2>Laboratorio interactivo</h2>
-    <p>Prueba un “terminal” de juguete: ejecuta comandos de demo.</p>
-    <div class="terminal" role="region" aria-label="Terminal de ejemplo">
-      <div class="terminal__bar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <strong class="terminal__title">dev@compu:~$</strong>
+    <h2 data-aos="fade-right">Laboratorio interactivo</h2>
+    <p data-aos="fade-right" data-aos-delay="100">Prueba un “terminal” de juguete: ejecuta comandos de demo.</p>
+    
+    <div class="terminal-container">
+      <div class="terminal" role="region" aria-label="Terminal de ejemplo" data-aos="zoom-in">
+        <div class="terminal__bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="terminal__title">Terminal - dev@compu:~/proyectos</span>
+        </div>
+        <div id="termOutput" class="terminal__output" aria-live="polite">
+          <div class="line"><span class="prompt">dev</span><span class="host">@compu</span>:<span class="directory">~/proyectos</span>$ <span class="comment"># Bienvenido al terminal interactivo</span></div>
+          <div class="line"><span class="prompt">dev</span><span class="host">@compu</span>:<span class="directory">~/proyectos</span>$ <span class="command">echo "Hola, bienvenido a la terminal de práctica"</span></div>
+          <div class="line">Hola, bienvenido a la terminal de práctica</div>
+          <div class="line"><span class="prompt">dev</span><span class="host">@compu</span>:<span class="directory">~/proyectos</span>$ <span class="command">help</span></div>
+          <div class="line">Comandos disponibles: help, ls, cd, pwd, mkdir, touch, cat, echo, clear, date, ping, ssh, scan, crypto, python, download, simulate, theme</div>
+          <div class="line"><span class="prompt">dev</span><span class="host">@compu</span>:<span class="directory">~/proyectos</span>$ <span class="cursor"></span></div>
+        </div>
+        <div class="terminal__input">
+          <span class="terminal__prompt">dev</span>
+          <span class="terminal__host">@compu</span>:<span class="directory">~/proyectos</span>$
+          <input id="termInput" class="terminal__input-field" type="text" placeholder="Escribe un comando" aria-label="Entrada de terminal" autofocus />
+          <span class="terminal__hint">Presiona Enter</span>
+        </div>
       </div>
-      <div id="termOutput" class="terminal__output" aria-live="polite"></div>
-      <div class="terminal__input">
-        <input id="termInput" type="text" placeholder="Escribe: help, date, ip, cls" aria-label="Entrada de terminal" />
-        <button id="termRun" class="btn btn--primary">Ejecutar</button>
-      </div>
+    </div>
+
+    <div class="terminal-actions">
+      <button id="clearTerminal" class="btn btn--ghost">
+        <i class="fas fa-broom"></i> Limpiar terminal
+      </button>
+      <button id="insertCommand" class="btn btn--ghost">
+        <i class="fas fa-terminal"></i> Insertar comando de ejemplo
+      </button>
+      <button id="runTutorial" class="btn btn--ghost">
+        <i class="fas fa-graduation-cap"></i> Ejecutar tutorial
+      </button>
     </div>
   </section>
 
   <!-- Contacto -->
   <section id="contacto" class="section">
-    <h2>Contáctanos</h2>
-    <form id="contactForm" class="form" novalidate>
+    <h2 data-aos="fade-right">Contáctanos</h2>
+    <form id="contactForm" class="form" novalidate data-aos="fade-up">
       <label>Nombre
         <input type="text" name="nombre" required />
       </label>
@@ -185,7 +218,11 @@
 
     // Tema (dark/light) con persistencia
     const themeToggle = $("#themeToggle");
-    const applyTheme = t => document.documentElement.dataset.theme = t;
+    const themeIcon = $(".theme-icon");
+    const applyTheme = t => {
+      document.documentElement.dataset.theme = t;
+      themeIcon.textContent = t === "dark" ? "🌙" : "☀️";
+    };
     const saved = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     applyTheme(saved);
     themeToggle.setAttribute("aria-pressed", saved === "dark");
@@ -210,9 +247,23 @@
         chips.forEach(c=>c.classList.remove("chip--active"));
         ch.classList.add("chip--active");
         const f = ch.dataset.filter;
+        
+        // Animación de filtrado
         cards.forEach(card=>{
           const ok = f === "all" || card.dataset.category === f;
-          card.style.display = ok ? "" : "none";
+          if (ok) {
+            card.style.display = "";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 50);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
         });
       });
     });
@@ -224,6 +275,20 @@
         const visible = !ul.hasAttribute("hidden");
         ul.toggleAttribute("hidden", visible);
         btn.textContent = visible ? "Ver temario" : "Ocultar";
+        
+        // Animación de despliegue
+        if (!visible) {
+          ul.style.opacity = "0";
+          ul.style.height = "0";
+          setTimeout(() => {
+            ul.style.transition = "opacity 0.3s ease, height 0.3s ease";
+            ul.style.opacity = "1";
+            ul.style.height = ul.scrollHeight + "px";
+          }, 10);
+        } else {
+          ul.style.opacity = "0";
+          ul.style.height = "0";
+        }
       });
     });
 
@@ -231,33 +296,348 @@
     $$("[data-copiar]").forEach(btn=>{
       btn.addEventListener("click", async ()=>{
         const text = btn.dataset.copiar;
-        try { await navigator.clipboard.writeText(text);
-          btn.classList.add("ok"); btn.textContent = "Copiado ✓";
-          setTimeout(()=>{ btn.classList.remove("ok"); btn.textContent = "Copiar comando"; }, 1200);
-        } catch { alert("No se pudo copiar"); }
+        try { 
+          await navigator.clipboard.writeText(text);
+          btn.classList.add("ok"); 
+          btn.innerHTML = "<i class='fas fa-check'></i> Copiado";
+          setTimeout(()=>{ 
+            btn.classList.remove("ok"); 
+            btn.innerHTML = "<i class='fas fa-copy'></i> Copiar comando"; 
+          }, 2000);
+        } catch { 
+          alert("No se pudo copiar"); 
+        }
       });
     });
 
-    // Terminal de juguete
+    // Terminal de juguete MEJORADA
     const termOut = $("#termOutput");
     const termIn  = $("#termInput");
-    const termRun = $("#termRun");
-    const print = (msg)=> termOut.insertAdjacentHTML("beforeend", `<div class="line">${msg}</div>`);
+    const termHint = $(".terminal__hint");
+    let currentDir = "~/proyectos";
+    let commandHistory = [];
+    let historyIndex = -1;
+
+    // Función para imprimir en la terminal
+    const print = (msg, className = "") => {
+      const div = document.createElement("div");
+      div.className = `line ${className}`;
+      div.innerHTML = msg;
+      termOut.appendChild(div);
+      termOut.scrollTop = termOut.scrollHeight;
+    };
+
+    // Función para mostrar el prompt actual
+    const showPrompt = () => {
+      print(`<span class="prompt">dev</span><span class="host">@compu</span>:<span class="directory">${currentDir}</span>$ <span class="cursor"></span>`);
+    };
+
+    // Comandos disponibles
     const commands = {
-      help: ()=> "Comandos: help, date, ip, cls",
-      date: ()=> new Date().toString(),
-      ip:   ()=> "IP simulada: 192.168.1.42",
-      cls:  ()=> { termOut.innerHTML = ""; return "Pantalla limpia."; }
+      help: () => `
+        <div class="line"><span class="success">Comandos disponibles:</span></div>
+        <div class="line">  <span class="command">help</span>       - Muestra esta ayuda</div>
+        <div class="line">  <span class="command">ls</span>         - Lista archivos y directorios</div>
+        <div class="line">  <span class="command">cd</span>         - Cambia de directorio</div>
+        <div class="line">  <span class="command">pwd</span>        - Muestra el directorio actual</div>
+        <div class="line">  <span class="command">mkdir</span>      - Crea un nuevo directorio</div>
+        <div class="line">  <span class="command">touch</span>      - Crea un nuevo archivo</div>
+        <div class="line">  <span class="command">cat</span>        - Muestra el contenido de un archivo</div>
+        <div class="line">  <span class="command">echo</span>       - Muestra texto en la terminal</div>
+        <div class="line">  <span class="command">clear</span>      - Limpia la terminal</div>
+        <div class="line">  <span class="command">date</span>       - Muestra la fecha y hora actual</div>
+        <div class="line">  <span class="command">ping</span>       - Prueba la conectividad de red</div>
+        <div class="line">  <span class="command">ssh</span>        - Simula una conexión SSH</div>
+        <div class="line">  <span class="command">scan</span>       - Escaneo de puertos simulado</div>
+        <div class="line">  <span class="command">crypto</span>     - Genera valores hash criptográficos</div>
+        <div class="line">  <span class="command">python</span>     - Ejecuta código Python simulado</div>
+        <div class="line">  <span class="command">download</span>   - Simula una descarga</div>
+        <div class="line">  <span class="command">simulate</span>   - Simula un proceso de instalación</div>
+        <div class="line">  <span class="command">theme</span>      - Cambia entre tema claro y oscuro</div>
+      `,
+      
+      ls: () => {
+        const files = [
+          {name: "app.py", type: "file"},
+          {name: "README.md", type: "file"},
+          {name: "src/", type: "directory"},
+          {name: "config/", type: "directory"},
+          {name: "data.txt", type: "file"},
+          {name: "scripts/", type: "directory"}
+        ];
+        
+        let output = "";
+        files.forEach(file => {
+          const color = file.type === "directory" ? "directory" : "file";
+          output += `<span class="${color}">${file.name}</span>    `;
+        });
+        return output;
+      },
+      
+      cd: (args) => {
+        if (!args || args === "~") {
+          currentDir = "~/proyectos";
+          return `Cambiado al directorio inicial`;
+        } else if (args === "..") {
+          if (currentDir !== "~/proyectos") {
+            currentDir = "~/proyectos";
+          }
+          return `Cambiado al directorio superior`;
+        } else if (args === "src" || args === "config" || args === "scripts") {
+          currentDir = `~/proyectos/${args}`;
+          return `Cambiado al directorio '${args}'`;
+        } else {
+          return `<span class="error">Error: directorio '${args}' no encontrado</span>`;
+        }
+      },
+      
+      pwd: () => currentDir,
+      
+      mkdir: (args) => {
+        if (!args) return `<span class="error">Error: debe especificar un nombre de directorio</span>`;
+        return `<span class="success">Directorio '${args}' creado correctamente</span>`;
+      },
+      
+      touch: (args) => {
+        if (!args) return `<span class="error">Error: debe especificar un nombre de archivo</span>`;
+        return `<span class="success">Archivo '${args}' creado correctamente</span>`;
+      },
+      
+      cat: (args) => {
+        if (args === "README.md") {
+          return `# Proyecto de Ejemplo\n\nEste es un archivo README de ejemplo para practicar comandos de terminal.`;
+        } else if (args === "app.py") {
+          return `#!/usr/bin/env python3\n\nprint("Hola desde Python!")\n\nif __name__ == "__main__":\n    print("Ejecutando aplicación...")\n`;
+        } else if (args === "data.txt") {
+          return `Datos de ejemplo:\n- Línea 1\n- Línea 2\n- Línea 3`;
+        } else {
+          return `<span class="error">Error: no se puede leer '${args}': Archivo no encontrado</span>`;
+        }
+      },
+      
+      echo: (args) => args || "",
+      
+      clear: () => {
+        termOut.innerHTML = "";
+        return "";
+      },
+      
+      date: () => new Date().toString(),
+      
+      ping: (args) => {
+        if (!args) args = "google.com";
+        return `
+          <div class="line">Haciendo ping a ${args} [142.250.184.206] con 32 bytes de datos:</div>
+          <div class="line">Respuesta desde 142.250.184.206: bytes=32 tiempo=25ms TTL=115</div>
+          <div class="line">Respuesta desde 142.250.184.206: bytes=32 tiempo=23ms TTL=115</div>
+          <div class="line">Respuesta desde 142.250.184.206: bytes=32 tiempo=27ms TTL=115</div>
+          <div class="line">Respuesta desde 142.250.184.206: bytes=32 tiempo=24ms TTL=115</div>
+          <div class="line"></div>
+          <div class="line">Estadísticas de ping para 142.250.184.206:</div>
+          <div class="line">    Paquetes: enviados = 4, recibidos = 4, perdidos = 0 (0% perdidos),</div>
+          <div class="line">Tiempos aproximados de ida y vuelta en milisegundos:</div>
+          <div class="line">    Mínimo = 23ms, Máximo = 27ms, Media = 24ms</div>
+        `;
+      },
+      
+      ssh: (args) => {
+        if (!args) args = "usuario@servidor";
+        return `
+          <div class="line">Conectando a ${args}...</div>
+          <div class="line">Autenticación con clave pública.</div>
+          <div class="line">Bienvenido a Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-76-generic x86_64)</div>
+          <div class="line"></div>
+          <div class="line"> * Documentación:  https://help.ubuntu.com</div>
+          <div class="line"> * Gestión:        https://landscape.canonical.com</div>
+          <div class="line"> * Soporte:        https://ubuntu.com/advantage</div>
+          <div class="line"></div>
+          <div class="line">0 actualizaciones de seguridad pueden aplicarse inmediatamente.</div>
+          <div class="line"></div>
+          <div class="line">Último inicio de sesión: vie jun 16 10:45:32 2023 desde 192.168.1.42</div>
+          <div class="line">usuario@servidor:~$ <span class="comment"># Conexión SSH simulada - escribe 'exit' para volver</span></div>
+        `;
+      },
+      
+      scan: (args) => {
+        if (!args) args = "localhost";
+        return `
+          <div class="line">Iniciando escaneo de puertos en ${args}...</div>
+          <div class="line">Escaneando 1000 puertos</div>
+          <div class="line"></div>
+          <div class="line">PORT     STATE    SERVICE</div>
+          <div class="line">22/tcp   open     ssh</div>
+          <div class="line">80/tcp   open     http</div>
+          <div class="line">443/tcp  open     https</div>
+          <div class="line">3306/tcp open     mysql</div>
+          <div class="line">5432/tcp filtered postgresql</div>
+          <div class="line"></div>
+          <div class="line">Escaneo completado en 2.45 segundos</div>
+        `;
+      },
+      
+      crypto: () => {
+        const generateHash = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        return `
+          <div class="line">Generando hash SHA-256...</div>
+          <div class="line">${generateHash()}</div>
+          <div class="line"></div>
+          <div class="line">Generando valor aleatorio para salting...</div>
+          <div class="line">${generateHash().substring(0, 16)}</div>
+        `;
+      },
+      
+      python: () => {
+        return `
+          <div class="line">Python 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0] on linux</div>
+          <div class="line">Type "help", "copyright", "credits" or "license" for more information.</div>
+          <div class="line">>>> print("Hola desde Python!")</div>
+          <div class="line">Hola desde Python!</div>
+          <div class="line">>>> x = [n for n in range(5)]</div>
+          <div class="line">>>> print(x)</div>
+          <div class="line">[0, 1, 2, 3, 4]</div>
+          <div class="line">>>> <span class="comment"># Escribe 'exit()' para salir</span></div>
+        `;
+      },
+      
+      download: (args) => {
+        if (!args) args = "archivo.zip";
+        
+        // Simular barra de progreso
+        let progressOutput = `<div class="line">Descargando ${args}...</div>`;
+        progressOutput += `<div class="progress-bar" style="width: 0%"></div>`;
+        
+        // Simular progreso
+        setTimeout(() => {
+          $(".progress-bar").style.width = "25%";
+        }, 300);
+        
+        setTimeout(() => {
+          $(".progress-bar").style.width = "50%";
+        }, 600);
+        
+        setTimeout(() => {
+          $(".progress-bar").style.width = "75%";
+        }, 900);
+        
+        setTimeout(() => {
+          $(".progress-bar").style.width = "100%";
+          print(`<div class="line"><span class="success">Descarga completada: ${args} (15.7 MB)</span></div>`);
+          showPrompt();
+        }, 1200);
+        
+        return progressOutput;
+      },
+      
+      simulate: () => {
+        return `
+          <div class="line">Iniciando simulación de instalación...</div>
+          <div class="line">[####.....................] 20%</div>
+          <div class="line">Configurando paquetes...</div>
+          <div class="line">[##########................] 40%</div>
+          <div class="line">Verificando dependencias...</div>
+          <div class="line">[################.........] 70%</div>
+          <div class="line">Aplicando configuraciones...</div>
+          <div class="line">[########################] 100%</div>
+          <div class="line"><span class="success">Instalación completada correctamente</span></div>
+        `;
+      },
+      
+      theme: () => {
+        const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme);
+        localStorage.setItem("theme", nextTheme);
+        themeToggle.setAttribute("aria-pressed", nextTheme === "dark");
+        return `<span class="success">Tema cambiado a ${nextTheme}</span>`;
+      }
     };
-    const runCmd = ()=>{
-      const v = termIn.value.trim().toLowerCase();
-      if (!v) return;
-      print(`<span class="prompt">dev@compu</span>$ ${v}`);
-      print(commands[v]?.() ?? "Comando no reconocido. Escribe 'help'.");
-      termIn.value = ""; termOut.scrollTop = termOut.scrollHeight;
+
+    // Ejecutar comando
+    const runCmd = () => {
+      const input = termIn.value.trim();
+      if (!input) return;
+      
+      // Agregar a historial
+      commandHistory.push(input);
+      historyIndex = commandHistory.length;
+      
+      // Mostrar comando ejecutado
+      print(`<span class="prompt">dev</span><span class="host">@compu</span>:<span class="directory">${currentDir}</span>$ <span class="command">${input}</span>`);
+      
+      // Limpiar entrada
+      termIn.value = "";
+      
+      // Procesar comando
+      const [cmd, ...args] = input.split(" ");
+      const command = cmd.toLowerCase();
+      const argument = args.join(" ");
+      
+      if (commands[command]) {
+        const output = commands[command](argument);
+        if (output) print(output);
+        if (command !== "clear" && command !== "download") showPrompt();
+      } else {
+        print(`<span class="error">Comando no reconocido: ${command}. Escribe 'help' para ver los comandos disponibles.</span>`);
+        showPrompt();
+      }
     };
-    termRun.addEventListener("click", runCmd);
-    termIn.addEventListener("keydown", e=>{ if(e.key==="Enter") runCmd(); });
+
+    // Event listeners
+    termIn.addEventListener("keydown", e => {
+      // Navegación por historial con flechas
+      if (e.key === "ArrowUp" && commandHistory.length > 0) {
+        e.preventDefault();
+        historyIndex = Math.max(0, historyIndex - 1);
+        termIn.value = commandHistory[historyIndex] || "";
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        historyIndex = Math.min(commandHistory.length, historyIndex + 1);
+        termIn.value = commandHistory[historyIndex] || "";
+      } else if (e.key === "Tab") {
+        // Autocompletado simple
+        e.preventDefault();
+        const input = termIn.value;
+        const available = Object.keys(commands).filter(c => c.startsWith(input));
+        if (available.length === 1) {
+          termIn.value = available[0];
+        }
+      } else if (e.key === "Enter") {
+        runCmd();
+      }
+    });
+
+    // Botón de limpiar terminal
+    $("#clearTerminal").addEventListener("click", () => {
+      commands.clear();
+      showPrompt();
+    });
+
+    // Botón de insertar comando de ejemplo
+    $("#insertCommand").addEventListener("click", () => {
+      const examples = [
+        "ls",
+        "cd src",
+        "cat README.md",
+        "ping google.com",
+        "scan",
+        "crypto",
+        "download",
+        "simulate"
+      ];
+      const randomCmd = examples[Math.floor(Math.random() * examples.length)];
+      termIn.value = randomCmd;
+      termIn.focus();
+    });
+
+    // Botón de tutorial
+    $("#runTutorial").addEventListener("click", () => {
+      commands.clear();
+      
+      setTimeout(() => print("<span class='success'>Bienvenido al tutorial de terminal</span>"), 100);
+      setTimeout(() => print("En esta terminal puedes practicar comandos básicos de Linux"), 500);
+      setTimeout(() => print("Prueba comandos como 'ls', 'cd', 'pwd', 'mkdir'"), 900);
+      setTimeout(() => print("Escribe 'help' para ver todos los comandos disponibles"), 1300);
+      setTimeout(() => showPrompt(), 1700);
+    });
 
     // Formulario
     const form = $("#contactForm");
@@ -270,6 +650,10 @@
       if (!ok || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         msgEl.textContent = "Revisa los campos. El correo debe ser válido.";
         msgEl.className = "form__msg form__msg--error";
+        
+        // Animación de error
+        form.classList.add("shake");
+        setTimeout(() => form.classList.remove("shake"), 500);
         return;
       }
       msgEl.textContent = "¡Mensaje enviado! Te responderemos pronto.";
@@ -288,6 +672,30 @@
 
     // Año dinámico
     $("#year").textContent = new Date().getFullYear();
+
+    // Animaciones al hacer scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, observerOptions);
+
+    // Observar elementos para animaciones
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
